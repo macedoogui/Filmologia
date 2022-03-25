@@ -7,15 +7,15 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <main>
-      <nav>
-        <img id='logo' src='' alt='logo filmologia'>
+    <nav>
+        <img id='logo' src=''>
         <ul id='menu'>
-          <li>Inserir</li>
-          <li>Filmes</li>
+          <li> <a href='#cadastro'>Inserir</a></li>
+          <li><a href='#banners'>Filmes</a></li>
         </ul>
         
       </nav>
+    <main>      
       <section id ='novo'>
         <h1>Cadastre um novo filme</h1>
         <div id='cadastro'>                   <form>         
@@ -29,46 +29,24 @@
               <input type='text' class ='diretor'>
   
               <label for='sinopse'>Sinopse: </label>
-              <input type='text' class ='sinopse'>             
+              <input type='text' class ='sinopse'>
+
+          <button>Cadastrar</button>
           </form>
         </div>
       </section>
 
       <section id='banners'>
 
+        <% catalogo.forEach((filmes) => { %>
+                  
         <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
+          <img src='<%= filmes.imagem %>' alt='<%= filme.nome%>'>
+          <p><%=Nome do filme%></p>
         </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>
-        <div id='catalogo'>
-          <img src='' alt='banner do filme'>
-          <p>Nome do filme</p>
-        </div>          
-              
+
+          <% )} %>
+                     
       </section>
     </main>
     
