@@ -1,0 +1,27 @@
+{
+  "name": "filmologia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macedoogui/Filmologia.git"
+  },
+  "author": "Guilherme Macedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macedoogui/Filmologia/issues"
+  },
+  "homepage": "https://github.com/macedoogui/Filmologia#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  }
+}
