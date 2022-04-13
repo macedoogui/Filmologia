@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -15,7 +15,9 @@
         </ul>
         
       </nav>
-    <main>      
+    
+    <main>
+      
       <section id ='novo'>
         <h1>Cadastre um novo filme</h1>
         <div id='cadastro'>                   <form>         
@@ -36,18 +38,25 @@
         </div>
       </section>
 
-      <section id='banners'>
+      <section id='banner'>
 
-        <% catalogo.forEach((filmes) => { %>
-                  
-        <div id='catalogo'>
-          <img src='<%= filmes.imagem %>' alt='<%= filme.nome%>'>
-          <p><%=Nome do filme%></p>
+                     <h2>Pesquisar Filme</h2>
+        <div class="filme-escolhido-espaco">
+            <div id="filme-escolhido-input-espaco">
+                <input type="number" id="idFilme" placeholder="Digite o ID do Filme e clique em 'Escolher'" />
+                <button id="idFilmeButton" onclick="findByIdFilmes()">ESCOLHER</button>
+            </div>
+            <div id="filmeEscolhido">
+
+            </div>
         </div>
-
-          <% )} %>
+                  
+        <div id="banners">
+          
+      </div>
                      
       </section>
+      
     </main>
     
     <footer>

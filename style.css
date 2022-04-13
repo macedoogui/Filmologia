@@ -13,14 +13,13 @@ nav{
   z-index:9999;
   width:100%;
   align-items:center;
-  background-color:black;
+  background-color:#050505;
   color:gold;
   display:flex;
   height:20vh;
   border:solid gold 2px;
   border-radius:10px;
 }
-
 
 nav ul#menu{
   margin-left:5rem;
@@ -82,7 +81,7 @@ button{
 
 }
 
-section#banners{
+#banner{
   border:solid white 1px;
   border-radius:10px;
   background-color:#696969;
@@ -92,7 +91,7 @@ section#banners{
   padding:2% 5% 2% 5%;
 }
 
-section div#catalogo{
+.FilmeLista{
   height:200px;
   width:135px;
   margin:2%;
