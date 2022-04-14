@@ -19,21 +19,25 @@
     <main>
       
       <section id ='novo'>
-        <h1>Cadastre um novo filme</h1>
-        <div id='cadastro'>                   <form>         
-              <label for='titulo'>Título do filme: </label>
-              <input type='text' class ='titulo'>
+        <button type='button' onclick="abrirCadastro()">Cadastre um novo filme</button>
+        <div id='cadastro'>
+          
+          <a onclick="fecharlCadastro()" class="close-modal">x</a>
+          
+          <form>
+              <label for='nome'>Título do filme: </label>
+              <input type='text' name='nome' class ='nome'>
   
               <label for='imagem'>Capa do filme: </label>
-              <input type='text' class ='imagem'>
-  
-              <label for='diretor'>Direção: </label>
-              <input type='text' class ='diretor'>
-  
-              <label for='sinopse'>Sinopse: </label>
-              <input type='text' class ='sinopse'>
+              <input type='text' name='imagem' class ='imagem'>
 
-          <button>Cadastrar</button>
+              <label for='nota'>Nota: </label>
+              <input type='text' name='nota' class ='nota'>
+                 
+              <label for='sinopse'>Sinopse: </label>
+              <input type='text' name='sinopse' class ='sinopse'>
+
+          <button onclick="createFilme()">Cadastrar</button>
           </form>
         </div>
       </section>
