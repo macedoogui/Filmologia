@@ -8,7 +8,7 @@ async function findAllFilmes() {
 
 filmes.forEach((filme) => {
     document.getElementById("banners").insertAdjacentHTML(
-      "afterbegin",
+      "beforeend",
       `<div class="FilmeLista">
         <div>
             <div class="FilmeLista__nome">${filme.nome}</div>
@@ -36,11 +36,11 @@ const findFilmeById = async () => {
 
   filmeEscolhidoDiv.innerHTML = `<div class="FilmeLista">
     <div>
-      <div class="FilmeLista_nome">${filme.nome}</div>
-      <div class="FilmeLista_nota">R$ ${filme.nota.toFixed(2)}</div>
-      <div class="FilmeLista_sinopse">${filme.sinopse}</div>
+      <div class="FilmeLista__nome">${filme.nome}</div>
+      <div class="FilmeLista__nota">R$ ${filme.nota.toFixed(2)}</div>
+      <div class="FilmeLista__sinopse">${filme.sinopse}</div>
     </div>
-      <img class="FilmeLista_imagem" src=${
+      <img class="FilmeLista__imagem" src=${
         filme.imagem
       } alt=${filme.nome}/>
   </div>`;

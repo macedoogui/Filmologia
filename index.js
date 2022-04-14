@@ -31,13 +31,13 @@ const filmes = [
 ];
 
 app.get('/filmes/find-filme', (req, res) => {
-  res.send(filme);
+  res.send(filmes);
 });
 
 app.get('/filmes/find-filme/:id', (req, res) => {
   const idParam = req.params.id;
   const chosenFilme = filmes.find((filme) => filme.id == idParam);
-  res.send(chosenfilme);
+  res.send(chosenFilme);
 });
 
 app.listen(port, () => {
