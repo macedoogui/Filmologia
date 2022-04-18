@@ -1,9 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
 const filmesController = require('../controllers/FilmesController');
 
-router.get('/find-filmes', filmesController.findFilmesController);
+router.get('/find-filmes', filmesController.findAllFilmesController);
 router.get('/find-filme/:id', filmesController.findFilmeByIdController);
 
 router.post('/create', filmesController.createFilmeController);
