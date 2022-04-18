@@ -1,7 +1,12 @@
 const filmesService = require('../services/FilmesService');
 
-const findFilmesController = (req, res) => {
-  const allFilmes = filmesService.findFilmesService();
+const findAllFilmesController = async (req, res) => {
+  const allFilmes = await filmesService.findAllFilmesService();
+  if (allFilmes.length == 0) {
+    return res
+      .status(404)
+      .send({ message: 'Não existe nenhum filme na sessão!' });
+  }
   res.send(allFilmes);
 };
 
@@ -31,7 +36,7 @@ const deleteFilmeController = (req, res) => {
 };
 
 module.exports = {
-  findFilmesController,
+  findAllFilmesController,
   findFilmeByIdController,
   createFilmeController,
   updateFilmeController,
