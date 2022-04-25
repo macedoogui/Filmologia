@@ -10,9 +10,22 @@ const findAllFilmesController = async (req, res) => {
   res.send(allFilmes);
 };
 
-const findFilmeByIdController = (req, res) => {
+const findFilmeByIdController = async (req, res) => {
   const idParam = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
+    res
+      .status(400)
+      .send({ message: 'ID inválido!' });
+    return;
+  }
+
   const chosenFilme = filmesService.findFilmeByIdService(idParam);
+
+  if (!chosenFilme) {
+    return res.status(404).send({ message: 'Filme não encontrado!' });
+  }
+
   res.send(chosenFilme);
 };
 
