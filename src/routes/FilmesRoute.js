@@ -2,6 +2,8 @@ const router = require('express').Router();
 
 const filmesController = require('../controllers/FilmesController');
 
+const { validId, validObjectBody } = require('../middlewares/filme.middlewares');
+
 router.get('/find-filmes', filmesController.findAllFilmesController);
 router.get('/find-filme/:id', filmesController.findFilmeByIdController);
 

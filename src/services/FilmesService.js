@@ -1,7 +1,7 @@
 const Filme = require('../models/Filme');
 
 const findAllFilmesService = async () => {
-  const allFilmes = await Filmes.find();
+  const allFilmes = await Filme.find();
   return allFilmes;
 };
 
@@ -10,27 +10,21 @@ const findFilmeByIdService = async (id) => {
   return filme;
 };
 
-const createFilmeService = (newFilme) => {
-  const newId = filmes.length + 1;
-  newFilme.id = newId;
-  filmes.push(newFilme);
-  return newFilme;
+const createFilmeService = async (newFilme) => {
+  const filmeCriado = await Filme.create(newFilme)
+  return filmeCriado;
 };
 
-const updateFilmeService = (id, filmeEdited) => {
-  filmeEdited['id'] = id;
-  const filmeIndex = filmes.findIndex((filme) => filme.id == id);
-  filmes[filmeIndex] = filmeEdited;
-  return filmeEdited;
+const updateFilmeService = async (id, filmeEdited) => {
+  const filmeAtualizado = await Filme.findByIdAndUpdate(id, filmeEdited);
+  return filmeAtualizado;
 };
 
-const deleteFilmeService = (id) => {
-  const filmeIndex = filmes.findIndex((filme) => filme.id == id);
-  return filmes.splice(filmeIndex, 1);
+const deleteFilmeService = async (id) => {
+  return await Filme.findByIdAndDelete(id);
 };
 
 module.exports = {
-  filmes,
   findAllFilmesService,
   findFilmeByIdService,
   createFilmeService,

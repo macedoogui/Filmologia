@@ -3,7 +3,7 @@
     "id": 1,
     "nome": "Clube da luta",
     "sinopse": "Um homem deprimido que sofre de insônia conhece um estranho vendedor chamado Tyler Durden e se vê morando em uma casa suja depois que seu perfeito apartamento é destruído. A dupla forma um clube com regras rígidas onde homens lutam. A parceria perfeita é comprometida quando uma mulher, Marla, atrai a atenção de Tyler.",
-    "imagem": "https://br.web.img3.acsta.net/medias/nmedia/18/90/95/96/20122166.jpg",
+    "imagem": "./assets/img/ClubeDaLuta.webp",
     "nota": 10.0
   },
   {

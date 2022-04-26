@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const filmesService = require('../services/FilmesService');
 
 const findAllFilmesController = async (req, res) => {
@@ -29,23 +31,64 @@ const findFilmeByIdController = async (req, res) => {
   res.send(chosenFilme);
 };
 
-const createFilmeController = (req, res) => {
+const createFilmeController = async (req, res) => {
   const filme = req.body;
-  const newFilme = filmesService.createFilmeService(filme);
+  const newFilme = await filmesService.createFilmeService(filme);
   res.send(newFilme);
 };
 
-const updateFilmeController = (req, res) => {
-  const idParam = +req.params.id;
+const updateFilmeController = async (req, res) => {
+  const idParam = req.params.id;
   const filmeEdit = req.body;
-  const updatedFilme = filmesService.updateFilmeService(idParam, filmeEdit);
+
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
+    res.status(400).send({ message: 'ID inválido!' });
+    return;
+  }
+
+  const chosenFilme = await filmesService.findFilmeByIdService(idParam);
+
+  if (!chosenFilme) {
+    return res.status(404).send({ message: 'Filme não encontrado!' });
+  }
+
+  if (
+    !filmeEdit ||
+    !filmeEdit.nome ||
+    !filmeEdit.sinopse ||
+    !filmeEdit.imagem ||
+    !filmeEdit.nota
+  ) {
+    return res.status(400).send({
+      message: 'Você não preencheu todos os dados para editar!',
+    });
+  }
+
+  const updatedFilme = await filmesService.updateFilmeService(
+    idParam,
+    filmeEdit,
+  );
+    
   res.send(updatedFilme);
 };
 
-const deleteFilmeController = (req, res) => {
+const deleteFilmeController = async (req, res) => {
   const idParam = req.params.id;
-  filmesService.deleteFilmeService(idParam);
-  res.send({ message: 'Filme excluído com sucesso!' });
+
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
+    res.status(400).send({ message: 'ID inválido!' });
+    return;
+  }
+
+  const chosenFilme = await filmesService.findFilmeByIdService(idParam);
+
+  if (!chosenFilme) {
+    return res.status(404).send({ message: 'Filme não encontrado!' });
+  }
+
+  await filmesService.deleteFilmeService(idParam);
+
+  res.send({ message: 'Filme deletado com sucesso!' });
 };
 
 module.exports = {
